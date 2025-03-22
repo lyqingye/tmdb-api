@@ -32,6 +32,7 @@ pub struct TVShowSearch {
     /// Whether to include adult (pornography) content in the results.
     pub include_adult: bool,
     pub first_air_date_year: Option<u16>,
+    pub year: Option<u16>,
 }
 
 impl TVShowSearch {
@@ -42,6 +43,7 @@ impl TVShowSearch {
             page: None,
             include_adult: false,
             first_air_date_year: None,
+            year: None,
         }
     }
 
@@ -62,6 +64,11 @@ impl TVShowSearch {
 
     pub fn with_first_air_date_year(mut self, value: Option<u16>) -> Self {
         self.first_air_date_year = value;
+        self
+    }
+
+    pub fn with_year(mut self, value: Option<u16>) -> Self {
+        self.year = value;
         self
     }
 }
@@ -90,6 +97,9 @@ impl crate::prelude::Command for TVShowSearch {
                 "first_air_date_year",
                 Cow::Owned(first_air_date_year.to_string()),
             ));
+        }
+        if let Some(year) = self.year {
+            res.push(("year", Cow::Owned(year.to_string())));
         }
 
         res
