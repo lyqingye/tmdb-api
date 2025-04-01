@@ -132,3 +132,41 @@ pub struct TVShow {
     #[serde(rename = "type")]
     pub ttype: String,
 }
+
+#[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
+pub struct EpisodeGroupItem {
+    pub description: String,
+    pub episode_count: u64,
+    pub group_count: u64,
+    pub id: String,
+    pub name: String,
+    #[serde(rename = "type")]
+    pub group_type: i32,
+}
+
+#[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
+pub struct EpisodeGroup {
+    pub results: Vec<EpisodeGroupItem>,
+    pub id: u64,
+}
+
+#[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
+pub struct EpisodeGroupDetailsItem {
+    pub id: String,
+    pub name: String,
+    pub order: u64,
+    pub episodes: Vec<EpisodeShort>,
+    pub locked: bool,
+}
+
+#[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
+pub struct EpisodeGroupDetails {
+    pub id: String,
+    pub name: String,
+    pub description: String,
+    pub episode_count: u64,
+    pub group_count: u64,
+    #[serde(rename = "type")]
+    pub group_type: i32,
+    pub groups: Vec<EpisodeGroupDetailsItem>,
+}
