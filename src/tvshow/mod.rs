@@ -150,7 +150,8 @@ pub struct EpisodeGroup {
     pub id: u64,
 }
 
-#[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Deserialize, Serialize, Default)]
+#[serde(default)]
 pub struct EpisodeGroupDetailsItem {
     pub id: String,
     pub name: String,
@@ -158,7 +159,8 @@ pub struct EpisodeGroupDetailsItem {
     pub episodes: Vec<EpisodeShort>,
 }
 
-#[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Deserialize, Serialize, Default)]
+#[serde(default)]
 pub struct EpisodeGroupDetails {
     pub id: String,
     pub name: String,

@@ -56,7 +56,7 @@ impl crate::prelude::Command for TVShowEpisodeGroupsDetails {
     }
 }
 
-// #[cfg(all(test, feature = "integration"))]
+#[cfg(all(test, feature = "integration"))]
 mod integration_tests {
     use super::TVShowEpisodeGroups;
     use crate::client::reqwest::ReqwestExecutor;
