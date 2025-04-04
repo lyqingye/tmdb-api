@@ -56,7 +56,7 @@ impl crate::prelude::Command for TVShowEpisodeGroupsDetails {
     }
 }
 
-#[cfg(all(test, feature = "integration"))]
+// #[cfg(all(test, feature = "integration"))]
 mod integration_tests {
     use super::TVShowEpisodeGroups;
     use crate::client::reqwest::ReqwestExecutor;
@@ -82,7 +82,7 @@ mod integration_tests {
         let secret = std::env::var("TMDB_TOKEN_V3").unwrap();
         let client = Client::<ReqwestExecutor>::new(secret);
 
-        let result = TVShowEpisodeGroupsDetails::new("67786ddbc11ee61dd874bc97".to_owned())
+        let result = TVShowEpisodeGroupsDetails::new("5ad845d20e0a26434200dcb6".to_owned())
             .with_language(Some("zh-CN".to_owned()))
             .execute(&client)
             .await

@@ -156,7 +156,6 @@ pub struct EpisodeGroupDetailsItem {
     pub name: String,
     pub order: u64,
     pub episodes: Vec<EpisodeShort>,
-    pub locked: bool,
 }
 
 #[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
